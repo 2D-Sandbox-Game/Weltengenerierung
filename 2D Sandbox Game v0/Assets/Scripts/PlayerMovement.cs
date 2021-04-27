@@ -4,35 +4,46 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float movementSpeed;
+    public float movementSpeed = 10;
+    public float JumpForce = 1;
     public Rigidbody2D rb;
+    public Animator animator;
 
-    public Sprite left;
-    public Sprite right;
-
-    float mx;
+    float mx, my;
     float prevMx = 1;
     bool spriteChanged = false;
 
     private void Update()
     {
         mx = Input.GetAxisRaw("Horizontal");
+        animator.SetFloat("Speed", Mathf.Abs(mx * movementSpeed));
 
         if (mx != prevMx && mx != 0)
         {
             if (mx == -1)
             {
-                gameObject.GetComponent<SpriteRenderer>().sprite = left;
+                gameObject.GetComponent<SpriteRenderer>().flipX = true;
             }
             else
             {
-                gameObject.GetComponent<SpriteRenderer>().sprite = right;
+                gameObject.GetComponent<SpriteRenderer>().flipX = false;
             }
 
             Debug.Log($"mx: {mx}");
 
             prevMx = mx;
-        }        
+        }
+
+        if (Input.GetButtonDown("Jump") && Mathf.Abs(rb.velocity.y) < 0.001f)
+        {
+            rb.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
+            animator.SetBool("IsJumping", true);
+        }
+
+        if (Mathf.Abs(rb.velocity.y) < 0.001f)
+        {
+            animator.SetBool("IsJumping", false);
+        }
     }
 
     private void FixedUpdate()
