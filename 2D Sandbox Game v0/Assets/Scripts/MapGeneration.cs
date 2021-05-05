@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEditor;
 
-public class GenerationT : MonoBehaviour
+public class MapGeneration : MonoBehaviour
 {
 
     public int height = 512;

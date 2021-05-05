@@ -551,8 +551,8 @@ GameObject:
   - component: {fileID: 1797999101}
   - component: {fileID: 1797999104}
   - component: {fileID: 1797999103}
-  - component: {fileID: 1797999102}
   - component: {fileID: 1797999105}
+  - component: {fileID: 1797999102}
   m_Layer: 0
   m_Name: Tilemap
   m_TagString: Untagged
@@ -588,11 +588,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   height: 128
   width: 512
-  smooth: 100
-  modifier: 0.403
-  mul1: 30
-  mul2: 0.5
-  mul3: 2
+  smooth: 60
+  modifier: 0.446
+  mul1: 0.5
+  mul2: 1
+  mul3: 5
   seed: 0
   map: {fileID: 1797999104}
   dirt: {fileID: 11400000, guid: 6e90ad18c08a87440973c5bb4135c396, type: 2}

@@ -9,9 +9,8 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     public Animator animator;
 
-    float mx, my;
+    float mx;
     float prevMx = 1;
-    bool spriteChanged = false;
 
     private void Update()
     {
